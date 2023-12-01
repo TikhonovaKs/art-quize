@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Art-quize</title>
+    <link rel="stylesheet" href="pages/index.css" />
+  </head>
+  <body class="page">
+    <header class="header">
+      <div class="header__logo">Discover art</div>
+    </header>
+    <main class="main">
+      <section class="info">
+        <h1 class="title">Masterpiece Matchup!</h1>
+        <p class="info__instruction">
+          Get ready to test your art knowledge in five exciting
+          rounds, each featuring three works of art. Before we dive in, familiarize yourself with 15 works and their
+          respective artists.
+        </p>
+        <p class="info__instruction">
+          Now, it's time to put your memory to the test! In each round, we'll present you with three artworks, and your
+          mission is to correctly match a artist with its corresponding artwork
+        </p>
+        <button id="button-start" class="button">start</button>
+      </section>
+    </main>
+
+    <div class="popup">
+      <div class="popup__container">
+        <button class="popup__button-close" aria-label="Close window button" type="button"></button>
+        <h2 class="popup__title">Enter your name</h2>
+        <form class="popup__form" novalidate>
+          <input
+            id="input-name"
+            minlength="2"
+            maxlength="30"
+            type="text"
+            name="name"
+            placeholder="name"
+            class="popup__input"
+            required
+          />
+          <span id="input-name"></span>
+          <button disabled type="submit" class="button" aria-label="send">Ok</button>
+        </form>
+      </div>
+    </div>
+
+    <script src="./pages/index.js"></script>
+  </body>
+</html>
