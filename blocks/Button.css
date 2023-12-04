@@ -16,3 +16,8 @@
   opacity: 80%;
   transition: 0.25s ease-in-out;
 }
+
+.button_disabled {
+  background-color: rgb(118, 118, 118);
+  cursor: default;
+}

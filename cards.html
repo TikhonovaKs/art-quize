@@ -13,65 +13,29 @@
     </header>
     <main class="main">
       <div class="player">
-        <p class="player__info" id="player-name">Molly</p>
+        <p class="player__info" id="player-name"></p>
         <p class="player__info" id="player-round">round: 2</p>
         <p class="player__info" id="player-score">your score: 3</p>
       </div>
       <h2 class="title">try to remember the artists</h2>
       <section class="gallery">
-        <div class="card">
-          <div class="card__image-container">
-            <img class="card__image" src="./images/test-image.png" alt="#" />
-          </div>
-          <p class="card__author">monet</p>
-        </div>
-        <div class="card">
-          <div class="card__image-container">
-            <img class="card__image" src="./images/test-image-2.png" alt="#" />
-          </div>
-          <p class="card__author">monet</p>
-        </div>
-        <div class="card">
-          <div class="card__image-container">
-            <img class="card__image" src="./images/test-image.png" alt="#" />
-          </div>
-          <p class="card__author">monet</p>
-        </div>
-        <div class="card">
-            <div class="card__image-container">
-              <img class="card__image" src="./images/test-image.png" alt="#" />
-            </div>
-            <p class="card__author">monet</p>
-          </div>
-
+        <template id="card-template">
           <div class="card">
             <div class="card__image-container">
               <img class="card__image" src="./images/test-image.png" alt="#" />
             </div>
             <p class="card__author">monet</p>
           </div>
-          <div class="card">
-            <div class="card__image-container">
-              <img class="card__image" src="./images/test-image-2.png" alt="#" />
-            </div>
-            <p class="card__author">monet</p>
-          </div>
-          <div class="card">
-            <div class="card__image-container">
-              <img class="card__image" src="./images/test-image.png" alt="#" />
-            </div>
-            <p class="card__author">monet</p>
-          </div>
-          <div class="card">
+        </template>
+        <!-- <div class="card">
               <div class="card__image-container">
                 <img class="card__image" src="./images/test-image.png" alt="#" />
               </div>
               <p class="card__author">monet</p>
-            </div>
-            
+            </div> -->
       </section>
     </main>
 
-    <script src="./pages/index.js"></script>
+    <script src="./pages/cards.js"></script>
   </body>
 </html>
