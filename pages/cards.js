@@ -50,10 +50,9 @@ function getRandomCards() {
   const currentCardsList = [];
 
   artApi.getArtObjects().then((data) => {
-    const updatedCardsList = data.data.filter((card) => card.artist_title !== null);
-    console.log(updatedCardsList);
+    const filterByNullCardsList = data.data.filter((card) => card.artist_title !== null);
 
-    const first15CardsList = updatedCardsList.slice(0, 15);
+    const first15CardsList = filterByNullCardsList.slice(0, 15);
 
     first15CardsList.forEach((element) => {
       renderCard(element);
