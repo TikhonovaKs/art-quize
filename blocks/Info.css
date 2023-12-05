@@ -1,12 +1,44 @@
 .info {
+  font-family: 'Playfair Display', serif;
   display: flex;
   flex-direction: column;
   color: gray;
   padding-bottom: 40px;
 }
 
+.info__instruction-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+  margin-bottom: 40px;
+}
+
+@media (min-width: 1280px) {
+  .info__instruction-container {
+    margin-top: 70px;
+    margin-bottom: 150px;
+  }
+}
+
 .info__instruction {
   margin-bottom: 20px;
-  font-size: 16px;
-  line-height: 110%;
+  font-size: 18px;
+  line-height: 120%;
+}
+
+.info__instruction:last-child {
+  margin-bottom: 0;
+}
+
+@media (min-width: 780px) {
+  .info__instruction {
+    font-size: 24px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .info__instruction {
+    font-size: 30px;
+    margin-bottom: 30px;
+  }
 }

@@ -9,20 +9,24 @@
   </head>
   <body class="page">
     <header class="header">
-      <div class="header__logo">Discover art</div>
+      <img class="header__logo" src="./images/logo.png" alt="logo" />
     </header>
     <main class="main">
       <section class="info">
         <h1 class="title">Masterpiece Matchup!</h1>
-        <p class="info__instruction">
-          Get ready to test your art knowledge in five exciting
-          rounds, each featuring three works of art. Before we dive in, familiarize yourself with 15 works and their
-          respective artists.
-        </p>
-        <p class="info__instruction">
-          Now, it's time to put your memory to the test! In each round, we'll present you with three artworks, and your
-          mission is to correctly match a artist with its corresponding artwork
-        </p>
+        <div class="info__instruction-container">
+          <p class="info__instruction">
+            Get ready to test your art knowledge in <b>five exciting rounds</b>, each featuring <b>three works of art</b>.
+          </p>
+          <p class="info__instruction">
+            Now, it's time to put your memory to the test! In each round, we'll present you with three artworks, and
+            your mission is to correctly match a artist with its corresponding artwork
+          </p>
+          <p class="info__instruction">
+            But before we dive in, familiarize yourself with <b>15 artworks and their respective artists</b>, and try to
+            <b>memorize them</b>.
+          </p>
+        </div>
         <button id="button-start" class="button">start</button>
       </section>
     </main>
@@ -43,7 +47,9 @@
             required
           />
           <span id="input-name"></span>
-          <button disabled id="button-send-name" type="submit" class="button button_disabled" aria-label="send">Ok</button>
+          <button disabled id="button-send-name" type="submit" class="button button_disabled" aria-label="send">
+            Ok
+          </button>
         </form>
       </div>
     </div>
