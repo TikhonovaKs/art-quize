@@ -7,9 +7,15 @@
   margin-left: auto;
 }
 
+@media (min-width: 780px) {
+  .title {
+    font-size: 26px;
+  }
+}
+
 @media (min-width: 1280px) {
   .title {
-    font-size: 28px;
+    font-size: 38px;
   }
 }
 

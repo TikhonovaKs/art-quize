@@ -12,10 +12,11 @@ class ArtApi {
   }
 
   getArtObjects() {
-    const TOTAL_PAGES = 100;
+    const TOTAL_PAGES = 33;
+    const LIMIT_ARTS = 30;
     const randomPage = Math.floor(Math.random() * TOTAL_PAGES) + 1;
     return fetch(
-      `${this._url}api/v1/artworks/search?fields=title,image_id,artist_title&limit=30&page=${randomPage}&api_model=artworks`,
+      `${this._url}api/v1/artworks/search?fields=title,image_id,artist_title&limit=${LIMIT_ARTS}&page=${randomPage}&api_model=artworks`,
       {
         method: 'GET',
         headers: this._headers,
@@ -71,10 +72,26 @@ function renderCard(element) {
   const cardElement = cardTemplate.cloneNode(true);
 
   cardElement.querySelector('.card__image').src =
-    'https://www.artic.edu/iiif/2/' + element.image_id + '/full/843,/0/default.jpg';
+    'https://www.artic.edu/iiif/2/' + element.image_id + '/full/200,/0/default.jpg';
   cardElement.querySelector('.card__author').textContent = element.artist_title;
 
   cardsContainer.append(cardElement);
 }
 
 getRandomCards();
+
+// -------------------------------------------------------------------------------
+// Redirecting page to game after 12 seconds
+// -------------------------------------------------------------------------------
+// const urlParams = new URLSearchParams(window.location.search);
+// const redirectDone = urlParams.get('redirectDone');
+// function redirectPage() {
+//   if (redirectDone !== 'true') {
+//     setTimeout(function () {
+//       const newUrl = new URL('game.html', window.location.href);
+//       newUrl.searchParams.set('redirectDone', 'true');
+//       window.location.href = newUrl.toString();
+//     }, 12000);
+//   }
+// }
+// redirectPage();
