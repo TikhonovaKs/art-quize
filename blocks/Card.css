@@ -7,12 +7,11 @@
 }
 
 .card__image-container {
-  height: 200px;
+  height: 300px;
   overflow: hidden;
-  /* background-color: rgb(230, 230, 230); */
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 780px) {
   .card__image-container {
     height: 300px;
   }
@@ -22,7 +21,6 @@
   width: 100%;
   height: 100%;
   object-fit: contain;
-  border-bottom: 1px solid #5f6368;
   padding: 10px;
 }
 
@@ -31,9 +29,8 @@
   font-weight: 700;
   font-size: 18px;
   line-height: normal;
-  /* color: rgb(118, 118, 118); */
   padding: 15px 0;
-  /* border-bottom: 1px solid rgb(207 203 203);; */
+  border-top: 1px solid #5f6368;
 }
 
 @media (min-width: 1280px) {
