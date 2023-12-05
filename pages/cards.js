@@ -83,15 +83,15 @@ getRandomCards();
 // -------------------------------------------------------------------------------
 // Redirecting page to game after 12 seconds
 // -------------------------------------------------------------------------------
-// const urlParams = new URLSearchParams(window.location.search);
-// const redirectDone = urlParams.get('redirectDone');
-// function redirectPage() {
-//   if (redirectDone !== 'true') {
-//     setTimeout(function () {
-//       const newUrl = new URL('game.html', window.location.href);
-//       newUrl.searchParams.set('redirectDone', 'true');
-//       window.location.href = newUrl.toString();
-//     }, 12000);
-//   }
-// }
+const urlParams = new URLSearchParams(window.location.search);
+const redirectDone = urlParams.get('redirectDone');
+function redirectPage() {
+  if (redirectDone !== 'true') {
+    setTimeout(function () {
+      const newUrl = new URL('game.html', window.location.href);
+      newUrl.searchParams.set('redirectDone', 'true');
+      window.location.href = newUrl.toString();
+    }, 12000);
+  }
+}
 // redirectPage();

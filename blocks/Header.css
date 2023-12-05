@@ -2,15 +2,24 @@
   max-width: 1280px;
   padding-top: 5px;
   padding-left: 5px;
+  padding-bottom: 10px;
   margin-bottom: 40px;
   margin-left: auto;
   margin-right: auto;
-  background-color: #cbdbec;
+  display: flex;
+  justify-content: flex-start;
+  align-items: end;
+  border-bottom: 2px solid #5f6368;
+}
+
+@media (min-width: 780px) {
+  .header {
+    margin-bottom: 70px;
+  }
 }
 
 @media (min-width: 1280px) {
   .header {
-    margin-bottom: 100px;
     padding-left: 10px;
     padding-top: 15px;
     padding-bottom: 15px;
@@ -20,11 +29,25 @@
 .header__logo {
   width: 60px;
   height: 60px;
+  margin-right: 15px;
 }
 
 @media (min-width: 1280px) {
   .header__logo {
     width: 80px;
     height: 80px;
+  }
+}
+
+.header__title {
+  font-family: 'Bebas+Neue';
+  font-size: 16px;
+  text-transform: uppercase;
+  line-height: 110%;
+}
+
+@media (min-width: 780px) {
+  .header__title {
+    font-size: 26px;
   }
 }

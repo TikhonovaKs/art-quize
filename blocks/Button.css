@@ -1,7 +1,7 @@
 .button {
   width: 200px;
   height: 50px;
-  background-color: #cbdbec;
+  background-color: #2f80ed;
   border: none;
   font-size: 16px;
   font-weight: 500;
@@ -11,6 +11,7 @@
   border-radius: 3px;
   cursor: pointer;
   font-family: 'Mulish', sans-serif;
+  color: white;
 }
 
 .button:hover {
@@ -19,8 +20,7 @@
 }
 
 .button_disabled {
-  background-color: white;
-  border: 2px solid #202126;
+  background-color: rgb(207, 207, 207);
   cursor: default;
 }
 
@@ -36,6 +36,6 @@
   .button {
     width: 400px;
     height: 65px;
-    font-size: 30px;
+    font-size: 26px;
   }
 }
