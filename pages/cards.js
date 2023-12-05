@@ -94,4 +94,5 @@ function redirectPage() {
     }, 12000);
   }
 }
-// redirectPage();
+
+redirectPage();
