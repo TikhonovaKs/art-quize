@@ -4,19 +4,27 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Agbalumo&family=Bebas+Neue&family=Montserrat:wght@200;400;500;700&family=Open+Sans&display=swap"
+      rel="stylesheet"
+    />
     <title>Art-quize</title>
     <link rel="stylesheet" href="pages/index.css" />
   </head>
   <body class="page">
     <header class="header">
       <img class="header__logo" src="./images/logo.png" alt="logo" />
+      <h1 class="header__title">Masterpiece Matchup!</h1>
     </header>
     <main class="main">
       <section class="info">
-        <h1 class="title">Masterpiece Matchup!</h1>
+        <h3 class="info__title">The rules</h3>
         <div class="info__instruction-container">
           <p class="info__instruction">
-            Get ready to test your art knowledge in <b>five exciting rounds</b>, each featuring <b>three works of art</b>.
+            Get ready to test your art knowledge in <b>five exciting rounds</b>, each featuring
+            <b>three works of art</b>.
           </p>
           <p class="info__instruction">
             Now, it's time to put your memory to the test! In each round, we'll present you with three artworks, and
@@ -27,9 +35,15 @@
             <b>memorize them</b>.
           </p>
         </div>
-        <button id="button-start" class="button">start</button>
+        <!-- <button id="button-start" class="button">start</button> -->
       </section>
+      <button id="button-start" class="button">start</button>
     </main>
+
+    <footer class="footer">
+      <p class="footer__info">Masterpiece Matchup!</p>
+      <div class="footer__triangle rotation"></div>
+    </footer>
 
     <div class="popup">
       <div class="popup__container">
@@ -53,6 +67,7 @@
         </form>
       </div>
     </div>
+
     <script src="./pages/index.js"></script>
   </body>
 </html>

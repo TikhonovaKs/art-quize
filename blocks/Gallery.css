@@ -1,16 +1,20 @@
 .gallery {
   display: grid;
+
   grid-template-columns: 1fr;
   row-gap: 30px;
   padding-top: 30px;
   padding-bottom: 30px;
   margin-left: auto;
   margin-right: auto;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-top: 30px;
 }
 
 @media (min-width: 780px) {
   .gallery {
-    max-width: 1280px;
+    max-width: 1480px;
     grid-template-columns: repeat(2, 1fr);
     column-gap: 30px;
     row-gap: 40px;
@@ -26,7 +30,7 @@
 
 @media (min-width: 1280px) {
   .gallery {
-    padding-top: 50px;
     column-gap: 50px;
+    padding: 70px;
   }
 }

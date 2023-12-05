@@ -1,0 +1,33 @@
+.footer {
+  display: flex;
+  position: relative;
+  height: 250px;
+  max-width: 1480px;
+  background-color: #2a2c2f;
+  margin-left: auto;
+  margin-right: auto;
+  color: white;
+  overflow: hidden;
+  margin-top: 70px;
+}
+
+@media (min-width: 1280px) {
+  .footer {
+    margin-top: 150px;
+  }
+}
+
+.footer__info {
+  font-size: 24px;
+  padding: 30px;
+}
+
+.footer__triangle {
+  position: absolute;
+  background-image: url(../images/kaufman-triangle.svg);
+  width: 400px;
+  height: 400px;
+  top: 0;
+  right: -110px;
+  background-size: cover;
+}
