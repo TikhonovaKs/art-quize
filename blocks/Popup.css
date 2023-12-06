@@ -106,3 +106,21 @@
 .popup__button-close:hover {
   opacity: 60%;
 }
+
+.popup-big-size {
+  max-width: 320px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+@media (min-width: 440px) {
+  .popup-big-size {
+    max-width: 750px;
+  }
+}
+
+.popup__instruction {
+  margin-bottom: 70px;
+  font-size: 18px;
+  line-height: 130%;
+}

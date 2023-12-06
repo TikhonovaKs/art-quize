@@ -31,3 +31,14 @@
   right: -110px;
   background-size: cover;
 }
+
+.footer__names {
+  display: flex;
+  flex-direction: column;
+  margin-left: 35px;
+}
+
+.footer__api-link {
+  color: azure;
+  margin-left: 35px;
+}
