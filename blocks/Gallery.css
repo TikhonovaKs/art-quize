@@ -1,6 +1,6 @@
 .gallery {
   display: grid;
-  grid-template-columns: 310px;
+  grid-template-columns: 280px;
   row-gap: 30px;
   padding-top: 30px;
   padding-bottom: 30px;
@@ -10,9 +10,15 @@
   padding-right: 5px;
 }
 
+@media (min-width: 330px) {
+  .gallery {
+    grid-template-columns: 310px;
+  }
+}
+
 @media (min-width: 610px) {
   .gallery {
-    grid-template-columns: repeat(1, 600px);
+    grid-template-columns: 600px;
   }
 }
 
