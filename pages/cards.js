@@ -1,3 +1,11 @@
+//-------for the timer. line 1-7  -heidi*
+const countdownElement = document.getElementById('countdown');
+const countdownContainer = document.getElementById('countdown-timer');
+
+function updateCountdown(seconds) {
+  countdownElement.textContent = seconds;
+} //*
+
 class ArtApi {
   constructor(config) {
     this._url = config.url;
@@ -46,24 +54,37 @@ function addPlayerName() {
 
 addPlayerName();
 
+$('#loading-wrapper ').show(); //----puts the loader in to function. shows the loader while fetching from the  api
+
 // get cards from API
 function getRandomCards() {
   const currentCardsList = [];
 
-  artApi.getArtObjects().then((data) => {
-    const filterByNullCardsList = data.data.filter((card) => card.artist_title !== null);
+  artApi
+    .getArtObjects()
+    .then((data) => {
+      const filterByNullCardsList = data.data.filter((card) => card.artist_title !== null);
 
-    const first15CardsList = filterByNullCardsList.slice(0, 15);
+      const first15CardsList = filterByNullCardsList.slice(0, 15);
 
-    first15CardsList.forEach((element) => {
-      renderCard(element);
-      // Collect every card into currentCardsList array
-      currentCardsList.push(element);
+      first15CardsList.forEach((element) => {
+        renderCard(element);
+        // Collect every card into currentCardsList array
+        currentCardsList.push(element);
+      });
+      // Save the updated array back to local storage (use for game)
+      localStorage.setItem('latestCardsList', JSON.stringify(currentCardsList));
+      console.log(currentCardsList);
+    })
+
+    .finally(() => {
+      $('#loading-wrapper').fadeOut('slow', function () {
+        //----the loader stops when the page is ready and fades out. -heidi
+        countdownContainer.style.display = 'none'; //---- Hides the countdown timer until loading is complete -heidi
+        countdownContainer.style.display = 'block'; //----shows timer when loading is comlete and is in the memorization area. -heidi
+        countdownAndRedirect(); //----automatically starts the timer when the page is completely loaded -heidi
+      });
     });
-    // Save the updated array back to local storage (use for game)
-    localStorage.setItem('latestCardsList', JSON.stringify(currentCardsList));
-    console.log(currentCardsList);
-  });
 }
 
 // Render one card
@@ -80,6 +101,39 @@ function renderCard(element) {
 
 getRandomCards();
 
+// Function to start the countdown timer heidi
+function startCountdown(durationInSeconds, callback) {
+  let remainingTime = durationInSeconds;
+
+  const countdownInterval = setInterval(function () {
+    updateCountdown(remainingTime);
+    remainingTime--;
+
+    if (remainingTime < 0) {
+      clearInterval(countdownInterval);
+      callback(); // Call the callback function when the countdown is done
+    }
+  }, 1000);
+}
+
+// Function to redirect to the game page
+function redirectToGamePage() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const redirectDone = urlParams.get('redirectDone');
+
+  if (redirectDone !== 'true') {
+    const newUrl = new URL('game.html', window.location.href);
+    newUrl.searchParams.set('redirectDone', 'true');
+    window.location.href = newUrl.toString();
+  }
+}
+
+// ------Function to handle the countdown and redirect -heidi
+function countdownAndRedirect() {
+  const countdownDuration = 12; // ----12 seconds
+  startCountdown(countdownDuration, redirectToGamePage);
+}
+
 // -------------------------------------------------------------------------------
 // Redirecting page to game after 12 seconds
 // -------------------------------------------------------------------------------
@@ -95,4 +149,6 @@ function redirectPage() {
   }
 }
 
-redirectPage();
+$(document).ready(function () {
+  getRandomCards();
+});

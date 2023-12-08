@@ -1,21 +1,22 @@
 let rounds;
 let score = 0;
-let currentRound = 0;
-// ---------------------------------------------------------------------------------------------
+let currentRound = 0; // ---------------------------------------------------------------------------------------------
 // Get items/arrays from local storage and create a new variable where this array will be stored
 // ---------------------------------------------------------------------------------------------
+
 let getStorageArray = localStorage.getItem('latestCardsList');
 let retrievedArray = JSON.parse(getStorageArray);
 let artworksArray = Object.values(retrievedArray);
 let roundEl = document.querySelector('.title__artist');
 let playerScore = document.querySelector('#player-score');
 let playerRound = document.querySelector('#player-round');
+let canClickNewAnswer = true; //----- variable declaration for canClickNewAnswer -heidi
 
 // Info popup
 const startButton = document.querySelector('#button-start');
 const closePopupBtn = document.querySelectorAll('#close_btn');
 const popup = document.querySelector('.popup');
-// Open and close popup:
+
 function openPopup() {
   popup.classList.add('popup_is-opened');
 }
@@ -23,64 +24,96 @@ function openPopup() {
 function closePopup() {
   popup.classList.remove('popup_is-opened');
 }
+
 startButton.addEventListener('click', openPopup);
 closePopupBtn.forEach((button) => {
-    button.addEventListener('click', closePopup);
+  button.addEventListener('click', closePopup);
 });
 
 playerScore.textContent = 'Score: 0';
 playerRound.textContent = 'Round: 1';
+
 function addPlayerName() {
   const nameFromStorage = JSON.parse(localStorage.getItem('playerName'));
-  console.log(nameFromStorage);
   const playerNameElement = document.querySelector('#player-name');
   playerNameElement.textContent = nameFromStorage;
 }
+
 addPlayerName();
+
 function getCards() {
   let chunks = [];
   let chunk = [];
+
   for (let i = 0; i < artworksArray.length; i++) {
     let artwork = artworksArray[i];
     chunk.push(artwork);
+
     if (chunk.length === 3) {
       chunks.push(chunk);
       chunk = [];
     }
   }
+
   return chunks;
 }
+
+//  ---------- Answer feedback line 61-71 -heidi
+function showFeedback(isCorrect) {
+  const feedbackMessage = document.getElementById('feedback-message');
+  feedbackMessage.textContent = isCorrect ? 'Correct! Well done! ✅ ' : 'Oops! Incorrect answer ❌';
+  feedbackMessage.style.color = isCorrect ? 'green' : 'red';
+
+  setTimeout(() => {
+    feedbackMessage.textContent = '';
+  }, 2000); //----shows the answer feed back for 2 seconds -heidi
+}
+
 function renderRound(round) {
   roundEl.innerHTML = '';
   let correctAnswerIndex = Math.floor(Math.random() * round.length);
   let correctAnswer = round[correctAnswerIndex];
   roundEl.innerHTML = `<h3>${correctAnswer.artist_title}</h3>`;
   let imageContainers = document.querySelectorAll('.card__image-container');
-  imageContainers.forEach((container) => {
+
+  imageContainers.forEach((container, i) => {
     container.innerHTML = '';
-  });
-  for (let i = 0; i < round.length; i++) {
     let artwork = round[i];
     let artworkEl = document.createElement('img');
     artworkEl.className = 'card__image';
     artworkEl.src = 'https://www.artic.edu/iiif/2/' + artwork.image_id + '/full/200,/0/default.jpg';
-    imageContainers[i].appendChild(artworkEl);
+    container.appendChild(artworkEl);
+
     artworkEl.addEventListener('click', function () {
-      if (i === correctAnswerIndex) {
-        score += 1;
-      }
-      playerScore.textContent = `Score: ${score}`;
-      playerRound.textContent = `Round: ${currentRound + 2}`; // new
-      if (currentRound === 4) {
-        // Display end message after the fifth round
-        displayEndMessage(score);
-      } else {
-        currentRound += 1;
-        renderRound(getCards()[currentRound]);
+      if (canClickNewAnswer) {
+        canClickNewAnswer = false; //-----added condtion where player cannot click for a new answer after 2 seconds (adds delay to answer in the new round)----Heidi
+        if (i === correctAnswerIndex) {
+          score += 1;
+          showFeedback(true); //------shows feedback if its correct -heidi
+        } else {
+          showFeedback(false); //------shows feedback if its wrong -heidi
+        }
+
+        playerScore.textContent = `Score: ${score}`;
+        playerRound.textContent = `Round: ${currentRound + 2}`;
+
+        setTimeout(() => {
+          //---------- added a condition where player can now click after 2 seconds same as the feedback time. line 105-108 -Heidi
+          canClickNewAnswer = true;
+        }, 2000);
+
+        if (currentRound === 4) {
+          displayEndMessage(score);
+        } else {
+          currentRound += 1;
+          renderRound(getCards()[currentRound]);
+        }
+        window.scrollTo(0, 0); //-----automatically scrolss up the screen -heidi
       }
     });
-  }
+  });
 }
+
 renderRound(getCards()[currentRound]);
 // --------------------------------------------------------------------------
 // Code for Rendering end pop up message
