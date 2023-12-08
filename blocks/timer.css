@@ -12,6 +12,17 @@
   position: -webkit-sticky;
   text-align: center;
   display: none;
+  border-radius: 100%;
+  width: 100px;
+  height: 100px;
+  margin-left: auto;
+  margin-right: auto;
+
+  display: block;
+  width: 60px;
+  padding-left: 10px;
+  padding-right: 90px;
+  padding-top: 20px;
 }
 
 .countdown-timer-container {
@@ -21,4 +32,18 @@
   padding-right: 20px;
   padding-left: 20px;
   text-align: center;
+  margin-bottom: 30px;
+}
+
+#countdown {
+  font-size: 28px;
+}
+
+#countname {
+  font-size: 18px;
+  padding-left: 10px;
+}
+
+.countdown-container {
+  width: 80px;
 }

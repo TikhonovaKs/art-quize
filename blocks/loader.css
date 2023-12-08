@@ -9,6 +9,7 @@ body {
   left: 0;
   top: 0;
   background-color: #242f3f;
+  z-index: 9999;
 }
 
 #loading-text {
