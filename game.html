@@ -7,6 +7,7 @@
     <title>Art-quize</title>
     <link rel="stylesheet" href="pages/index.css" />
   </head>
+
   <body class="page">
     <header class="header">
       <div class="header__logo-container">
@@ -17,11 +18,15 @@
     </header>
     <main class="main">
       <div class="player">
-        <p class="player__info" id="player-name">Molly</p>
-        <p class="player__info" id="player-round">round: 2</p>
-        <p class="player__info" id="player-score">your score: 3</p>
+        <p class="player__info" id="player-name"></p>
+        <p class="player__info" id="player-round"></p>
+        <p class="player__info" id="player-score"></p>
       </div>
-      <h3 class="title__artist">Monet</h3>
+
+      <div class="feedback" id="feedback-message"></div>
+      <!--feedback message-->
+
+      <h3 class="title__artist"></h3>
       <section class="gallery">
         <div class="card">
           <div class="card__image-container"></div>
@@ -39,10 +44,9 @@
       <div class="popup__container popup-big-size">
         <h2 class="popup__title">How to play</h2>
         <p id="info__instruction" class="popup__instruction">
-          Get ready to test your art knowledge in five exciting rounds, each featuring three works of art. Before we
-          dive in, familiarize yourself with 15 works and their respective artists. Now, it's time to put your memory to
-          the test! In each round, we'll present you with three artworks, and your mission is to correctly match a
-          artist with its corresponding artwork.
+          You have 5 rounds. In each round, there are 3 artworks and one artist. Remember which artwork belongs to the
+          given artist. After finishing the game, you can start a new game with a new set of cards (button "New Game")
+          or exit the game (button "New Player").
         </p>
         <button id="close_btn" class="button">All clear</button>
       </div>
