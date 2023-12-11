@@ -120,7 +120,14 @@
 }
 
 .popup__instruction {
+  display: flex;
+  flex-direction: column;
   margin-bottom: 70px;
   font-size: 18px;
   line-height: 130%;
+  list-style-type: none;
+}
+
+.popup__instruction-item {
+  margin-bottom: 15px;
 }
