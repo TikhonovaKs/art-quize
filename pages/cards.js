@@ -130,12 +130,12 @@ function redirectToGamePage() {
 
 // ------Function to handle the countdown and redirect -heidi
 function countdownAndRedirect() {
-  const countdownDuration = 20; // ----20 seconds
+  const countdownDuration = 30; // ----30 seconds
   startCountdown(countdownDuration, redirectToGamePage);
 }
 
 // -------------------------------------------------------------------------------
-// Redirecting page to game after 20 seconds
+// Redirecting page to game after 30 seconds
 // -------------------------------------------------------------------------------
 const urlParams = new URLSearchParams(window.location.search);
 const redirectDone = urlParams.get('redirectDone');
@@ -145,7 +145,7 @@ function redirectPage() {
       const newUrl = new URL('game.html', window.location.href);
       newUrl.searchParams.set('redirectDone', 'true');
       window.location.href = newUrl.toString();
-    }, 20000);
+    }, 30000);
   }
 }
 
